@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/App.css";
 const App = () => {
-  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
+  const [currentTime, setCurrentTime] = useState();
 
   useEffect(() => {
     const id = setInterval(
