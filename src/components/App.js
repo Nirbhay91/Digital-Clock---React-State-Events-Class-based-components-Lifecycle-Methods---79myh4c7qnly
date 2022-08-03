@@ -1,19 +1,14 @@
+
 import React, { useState, useEffect } from "react";
 import "../styles/App.css";
 const App = () => {
-  let time = new Date().toLocaleDateString();
-
-  const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
-  );
-
-  const upDateTime = () => {
-    let time = new Date().toLocaleTimeString();
-    setCurrentTime(time);
-  };
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
 
   useEffect(() => {
-    const id = setInterval(upDateTime, 1000);
+    const id = setInterval(
+      () => setCurrentTime(new Date().toLocaleString()),
+      1000
+    );
     return () => {
       clearInterval(id);
     };
@@ -21,9 +16,7 @@ const App = () => {
 
   return (
     <div id="main">
-      <div className="date-time">
-        {time} , {currentTime}
-      </div>
+      <div className="date-time">{currentTime}</div>
     </div>
   );
 };
